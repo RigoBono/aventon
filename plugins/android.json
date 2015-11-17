@@ -1,0 +1,36 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.aventon.workshop"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.aventon.workshop"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.aventon.workshop"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.aventon.workshop"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.aventon.workshop"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.aventon.workshop"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.aventon.workshop"
+        },
+        "com.megster.cordova.FileChooser": {
+            "PACKAGE_NAME": "com.aventon.workshop"
+        }
+    },
+    "dependent_plugins": {}
+}

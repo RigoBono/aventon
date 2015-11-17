@@ -1,0 +1,53 @@
+<html>
+<head>
+   	<title>Mapstraction Simple Example</title>
+   	<script src="http://openlayers.org/api/OpenLayers.js"></script>
+   	<script src="http://mapstraction.com/mxn/build/latest/mxn.js?(openlayers)" type="text/javascript"></script>
+	<script src="js/mapsAppPro.js" type="text/javascript"></script>
+	<style type="text/css">
+	#map {
+		height: 400px;
+	}
+
+	.menu {
+    border: 5px solid #ccc;
+    width: 250px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.menu select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.menu select:focus {
+    outline: none;
+}
+	</style>
+
+</head>
+<body onload="cargaLoc()">
+	<div class="menu">
+	<select id="MenuPrincipal" onchange="accion()">
+		<option>Selecciona una accion</option>
+		<option>Solicitar aventon</option>
+		<option>Ver informacion del viaje de hoy</option>
+		<option>Registrar automovil</option>
+		<option>Eliminar automovil</option>
+		<option>Registrar punto de encuentro para aventon</option>
+		<option>Eliminar punto de encuentro para aventon</option>
+		
+	</select>
+	</div>
+	<div id="map"></div>
+	
+
+	
+</body>
+</html>

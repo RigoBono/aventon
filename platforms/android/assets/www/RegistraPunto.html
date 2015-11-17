@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+  
+        <link rel="stylesheet" type="text/css" href="css/Registro.css">
+	<script type="text/javascript" src="js/RegistroPunto.js"></script>
+        <title>Aventon CUCEI</title>
+    </head>
+    <body>
+        <div class="app">
+	<h1> Registro de punto de encuentro </h1>
+	<div id="CajasTexto">
+            <h3> Dia: </h3>
+		<select id="dia">
+			<option>Lunes</option>
+			<option>Martes</option>
+			<option>Miercoles</option>
+			<option>Jueves</option>
+			<option>Viernes</option>
+			<option>Sabado</option>
+		</select>
+	    <h3> Hora de inicio de peticiones: </h3>
+		<select id="horainicio">
+			<option>0:00</option>
+			<option>1:00</option>
+			<option>2:00</option>
+			<option>3:00</option>
+			<option>4:00</option>
+			<option>5:00</option>
+			<option>6:00</option>
+			<option>7:00</option>
+			<option>8:00</option>
+			<option>9:00</option>
+			<option>10:00</option>
+			<option>11:00</option>
+			<option>12:00</option>
+			<option>13:00</option>
+			<option>14:00</option>
+			<option>15:00</option>
+			<option>16:00</option>
+			<option>17:00</option>
+			<option>18:00</option>
+			<option>19:00</option>
+		</select>
+	    <h3> Hora de final de peticiones: </h3>
+		<select id="horafin" onchange="validaFinalPeticiones()">
+			<option>0:00</option>
+			<option>1:00</option>
+			<option>2:00</option>
+			<option>3:00</option>
+			<option>4:00</option>
+			<option>5:00</option>
+			<option>6:00</option>
+			<option>7:00</option>
+			<option>8:00</option>
+			<option>9:00</option>
+			<option>10:00</option>
+			<option>11:00</option>
+			<option>12:00</option>
+			<option>13:00</option>
+			<option>14:00</option>
+			<option>15:00</option>
+			<option>16:00</option>
+			<option>17:00</option>
+			<option>18:00</option>
+			<option>19:00</option>
+			<option>20:00</option>
+		</select>
+            <h3>Hora del viaje</h3>
+			<select id="horaviaje" onchange="validaHoraViaje()">
+			<option>0:00</option>
+			<option>1:00</option>
+			<option>2:00</option>
+			<option>3:00</option>
+			<option>4:00</option>
+			<option>5:00</option>
+			<option>6:00</option>
+			<option>7:00</option>
+			<option>8:00</option>
+			<option>9:00</option>
+			<option>10:00</option>
+			<option>11:00</option>
+			<option>12:00</option>
+			<option>13:00</option>
+			<option>14:00</option>
+			<option>15:00</option>
+			<option>16:00</option>
+			<option>17:00</option>
+			<option>18:00</option>
+			<option>19:00</option>
+			<option>20:00</option>
+			<option>21:00</option>
+		</select>
+		<h3> Este lugar es: </h3>
+		<form action="">
+			<input type="radio" name="tipo" value="particular">Particular<br>
+			<input type="radio" name="tipo" value="publico">Publico
+		</form>
+	    <h3> Numero de interior </h3>
+		<input type="text" name="interio">
+		<h3> Nombre de la plaza: </h3>
+		<input type="text" name="nombreplaza">
+		
+		<h3> Ingresa tu codigo: </h3>
+		<input id="codigo" type="text" name="codigo">
+		<h3> Nip:</h3>
+			<input id="nip" type="password" name="nip">
+		</form>
+	   
+	</div>
+	<div id="Botones">
+           <a href="index.html"><input type="button" value="Cancelar" name="btnCancelar" onclick="alert('Registro cancelado');"></a>
+	   <input type="button" value="Registro" name="btnRegistro" onclick="validaVacios()">
+	   
+	</div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
