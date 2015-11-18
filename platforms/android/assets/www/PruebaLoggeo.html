@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/index.css">
 	<script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
         <title>Aventon CUCEI</title>
     </head>
     <body>
@@ -17,10 +17,33 @@
 	</div>
 	<div id="Botones">
            <a href="Registro.html"><input type="button" value="Registrase" name="btnRegistrar" ></a>
-	   <input id="boton" type="submit" value="Entrar" onclick="loggeo()"> 
+	   <input type="button" value="Entrar" name="btnEntrar" onclick="javascript:EnviarDatos()">
 	</div>
         </div>
 	<div id="mensaje">Ingresa al sistema</div>
+	
+	<script type="text/javascript">
+		function EnviarDatos(){
+			var codigo=document.getElementById('codigo').value;
+			var nip=document.getElementById('nip').value;
+			
+			$.ajax({
+				type:'POST',
+				url:"envia.php",
+				data:('codigo='+codigo+'&nip='+nip),
+				success:function(respuesta){
+				if(respuesta==1){
+					$('#mensaje').html('Accediste');
+				}
+				else{
+					$('#mensaje').html('No Accediste');
+				}
+				}
+				
+			})
 
-</body>
+		}
+	</script>
+        
+    </body>
 </html>
