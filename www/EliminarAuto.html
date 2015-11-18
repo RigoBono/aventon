@@ -21,27 +21,31 @@
     <head>
   
         <link rel="stylesheet" type="text/css" href="css/Registro.css">
+	<script type="text/javascript" src="js/EliminarAuto.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <title>Aventon CUCEI</title>
     </head>
-    <body>
+    <body onload="condicionInicial()">
         <div class="app">
 	<h1> Eliminar auto: </h1>
 	<div id="CajasTexto">
+	<h3> Ingresa tu codigo: </h3>
+		<input id="codigo" type="text" name="codigo">
+	<h3> Nip:</h3>
+		<input id="nip" type="password" name="nip">
+	<input type="button" value="Siguiente" name="btnRegistro" onclick="loggeo();">
+	</form>
+	
             <h3> Seguro que desea eliminar el automovil registrado con las placas: </h3>
-		<p id="placas">Buscando numero de placas... </p>
-		<form action="">
-			<input type="radio" name="tipo" value="seguro">Si<br>
-			<input type="radio" name="tipo" value="seguro">No
-		</form>
-
+		<select id="placas">Numero de placas </select>
+	
 	</div>
 	<div id="Botones">
            <a href="index.html"><input type="button" value="Cancelar" name="btnCancelar" onclick="alert('Registro cancelado');"></a>
-	   <input type="button" value="Registro" name="btnRegistro" onclick="alert('Entrando');">
+	   <input type="button" value="Eliminar" name="btnRegistro" onclick="eliminar();">
 	   
 	</div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>

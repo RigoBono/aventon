@@ -4,7 +4,7 @@
     <head>
   
         <link rel="stylesheet" type="text/css" href="css/Registro.css">
-	 <script type="text/javascript" src="js/RegistroCarro.js"></script>
+	 <script type="text/javascript" src="js/ModificarAuto.js"></script>
 	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <title>Aventon CUCEI</title>
     </head>
@@ -12,37 +12,27 @@
         <div class="app">
 	<h1> Registro </h1>
 	<div id="CajasTexto">
+	<h3> Ingresa tu codigo: </h3>
+		<input id="codigo" type="text" name="codigo">
+	<h3> Nip:</h3>
+		<input id="nip" type="password" name="nip">
+	<input type="button" value="Siguiente" name="btnRegistro" onclick="loggeo()">
             <h3> Placas: </h3>
-		<input id="placas" type="text" name="placas">
+		<select id="placas" onchange="cargaInfo()">Numero de placas</select>
 	    <h3> Modelo: </h3>
 		<input id="modelo" type="text" name="modelo">
 	    <h3> Maximo de pasajeros en aventon: </h3>
 		<input id="pasajeros" type="text" name="pasajeros">
-            <h3>Tipo de vehiculo</h3>
-		<select id="tipovehiculo" onchange="validaSedan()">
-			<option>Sedan</option>
-			<option>Camioneta</option>
-		</select>
+            
 	    <h3> Capacidad de equipaje (Kg): </h3>
 		<input id="capacidad" type="text" name="capacidad">
-		<h3>Tipo de camioneta: </h3>
-		<select id="tipocamioneta">
-			<option>Furgoneta</option>
-			<option>Pickup</option>
-			<option>SUV</option>
-			<option>Minivan</option>
-			<option>Todoterreno</option>
-		</select>
-		<h3> Ingresa tu codigo: </h3>
-		<input id="codigo" type="text" name="codigo">
-		<h3> Nip:</h3>
-			<input id="nip" type="password" name="nip">
-		</form>
+		
+		
 	   
 	</div>
 	<div id="Botones">
            <a href="index.html"><input type="button" value="Cancelar" name="btnCancelar" onclick="alert('Registro cancelado');"></a>
-	   <input type="button" value="Registro" name="btnRegistro" onclick="valida()">
+	   <input type="button" value="Registro" name="btnRegistro" onclick="actualizaInfo()">
 	   
 	</div>
         </div>

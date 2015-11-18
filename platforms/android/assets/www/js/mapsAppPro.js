@@ -24,6 +24,9 @@ setTimeout("location.href='EliminarPunto.html'", 100);
 if(seleccion=='Ver informacion del viaje de hoy'){
 setTimeout("location.href='Informacion.html'", 100);
 }
+if(seleccion=='Modificar automovil'){
+setTimeout("location.href='ModificaAuto.html'", 100);
+}
 
 }
 
