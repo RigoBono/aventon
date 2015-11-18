@@ -21,13 +21,20 @@
     <head>
   
         <link rel="stylesheet" type="text/css" href="css/Registro.css">
-	<script type="text/javascript" src="js/RegistroPunto.js"></script>
+	<script type="text/javascript" src="js/RegistraPunto.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <title>Aventon CUCEI</title>
     </head>
     <body>
         <div class="app">
 	<h1> Registro de punto de encuentro </h1>
 	<div id="CajasTexto">
+		<h3> Ingresa tu codigo: </h3>
+		<input id="codigo" type="text" name="codigo">
+	<h3> Nip:</h3>
+		<input id="nip" type="password" name="nip">
+	<input type="button" value="Siguiente" name="btnRegistro" onclick="loggeo()">
+	
             <h3> Dia: </h3>
 		<select id="dia">
 			<option>Lunes</option>
@@ -37,6 +44,8 @@
 			<option>Viernes</option>
 			<option>Sabado</option>
 		</select>
+		<h3>Selecciona las placas de tu vehiculo para ese dia</h3>
+	<selec id="placas">Elige las placas</select>
 	    <h3> Hora de inicio de peticiones: </h3>
 		<select id="horainicio">
 			<option>0:00</option>
@@ -110,14 +119,14 @@
 			<option>21:00</option>
 		</select>
 		<h3> Este lugar es: </h3>
-		<form action="">
-			<input type="radio" name="tipo" value="particular">Particular<br>
-			<input type="radio" name="tipo" value="publico">Publico
-		</form>
+		<selec id="lugar">
+		<option>Publico</option>
+		<option>Privado</option>
+		</select>
 	    <h3> Numero de interior </h3>
-		<input type="text" name="interio">
+		<input id="interior" type="text" name="interio">
 		<h3> Nombre de la plaza: </h3>
-		<input type="text" name="nombreplaza">
+		<input id="plaza" type="text" name="nombreplaza">
 		
 		<h3> Ingresa tu codigo: </h3>
 		<input id="codigo" type="text" name="codigo">
@@ -133,6 +142,6 @@
 	</div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+       
     </body>
 </html>
