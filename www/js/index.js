@@ -24,22 +24,25 @@ function EnviarDatos(){
 				}
 				}
 				
-			})
+			});
 
 		}
-		function conecta(){
-		$.ajax({
-				type:'POST',
-				url:"conectaPrueba.php",
-				data:{host:'192.168.0.113',user:'root',pwd:'Rigo1994'},
-				success:function(respuesta){
-				if(respuesta==1){
-					$('#mensaje').html('Accediste :D');
-				}
-				else{
-					$('#mensaje').html(respuesta);;
-				}
-				}
-				
-			})
-		}
+function conecta(){
+	var mysql = require('mysql');
+	var connection = mysql.createConnection({
+   	host: '192.168.0.113',
+   	user: 'root',
+   	password: 'Rigo1994',
+   	database: 'AventonCUCEI',
+   	port: 3306
+});
+	connection.connect(function(error){
+   	if(error){
+		alert("Error");
+      	throw error;
+  	 }else{
+      		alert('Conexion correcta.');
+   	}
+	});
+connection.end();	
+}
