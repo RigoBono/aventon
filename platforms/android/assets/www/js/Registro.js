@@ -1,17 +1,6 @@
 var pictureSource;   // Permitirá obtener la Fuente de la Foto
 var destinationType; // Permitirá Definir el formato de retorno
 
-function eligeFoto(){
-fileChooser.open(function(uri) {
-    alert(uri);
-},function(uri) {
-    alert("no");
-});
-alert("ok");
-
-}
-
-
 
 
 function validaCampos()
@@ -20,9 +9,10 @@ var vacios=validaVacios();
 var email=true;
 var num=validaNum();
 var nip=validaNips();
-if(vacios && nip && num)
+if(vacios && nip && num){
 	alert("Campos validados");
-else
+	RegistroBD();
+}else
 	alert("Error en campos")
 }
 
@@ -93,3 +83,52 @@ if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
 }
 return true;
 }
+
+function validaProfe(){
+var alumnoS=document.getElementById("alumno").value;
+	if(alumnoS=='No'){
+		document.getElementById("semestre").disabled=true;
+	}else{
+		document.getElementById("semestre").disabled=false;
+	}
+}
+
+function RegistroBD() {
+	var alumnoS=document.getElementById("alumno").value;
+	var semestreS;
+	if(alumnoS=='Si'){
+		alumnoS='true';	
+		semestreS=document.getElementById("semestre").value;
+	}
+	else{
+		alumnoS='false';
+		semestreS="NA";
+	}
+	var nip=document.getElementById("nip").value;
+	$.getJSON('http://192.168.0.113/RegistraUsuario.php',
+			{ 
+				codigo: document.getElementById("codigo").value,
+				nip:  document.getElementById("nip").value,
+				nombre: document.getElementById("nombre").value,				
+				apellidoM: document.getElementById("apellidoM").value,
+				apellidoP: document.getElementById("apellidoP").value,
+				email: document.getElementById("email").value,
+				celular: document.getElementById("tel").value,
+				sexo: document.getElementById("sexo").value,
+				alumno: alumnoS,
+				fotoC: 'NA',
+				semestre: semestreS,	
+			},function(data){
+			if(data==1){
+					alert("Bienvenido!(a)");
+								
+				}
+			else{
+				alert(data);
+			}	
+			  setTimeout("location.href='sesionN.html'", 100);
+		});
+
+	
+}
+

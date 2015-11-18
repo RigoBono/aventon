@@ -1,28 +1,12 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
   
         <link rel="stylesheet" type="text/css" href="css/Registro.css">
 	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="js/Registro.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <title>Aventon CUCEI</title>
     </head>
     <body>
@@ -32,9 +16,14 @@
             <h3> Nombre: </h3>
 		<input id="nombre" type="text" name="nombre" >
 	    <h3> Apellido paterno: </h3>
-		<input type="text" name="apellidoPtxt">
+		<input id="apellidoP" type="text" name="apellidoPtxt">
 	    <h3> Apellido materno: </h3>
-		<input type="text" name="apellidoMtxt">
+		<input id="apellidoM" type="text" name="apellidoMtxt">
+	    <h3>Sexo?</h3>
+		<select id="sexo">
+			<option>M</option>
+			<option>F</option>
+		</select>
             <h3> Codigo: </h3>
 		<input id="codigo" type="text" name="codigo">
 	    <h3> Email </h3>
@@ -58,10 +47,30 @@
 			<option value="Alimentos">Alimentos</option>
 		</select>
 		<h3>Eres alumno?</h3>
-		<form action="">
-			<input type="radio" name="AlumnoBand" value="Si">Si<br>
-			<input type="radio" name="AlumnoBand" value="No">No
-		</form>
+		<select id="alumno" onchange="validaProfe()">
+			<option>Elige una</option>
+			<option>Si</option>
+			<option>No</option>
+		</select>
+		<h3> Semestre</h3>
+		<select id="semestre">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+			<option>6</option>
+			<option>7</option>
+			<option>8</option>
+			<option>9</option>
+			<option>10</option>
+			<option>11</option>
+			<option>12</option>
+			<option>13</option>
+			<option>14</option>
+			<option>15</option>
+			<option>16</option>	
+		</select>
 	<div id="Contrasenas">
 		<h3> Nip:</h3>
 			<input id="nip" type="password" name="nip2txt">
@@ -71,7 +80,6 @@
 	   
 	</div>
 	
-	<button onclick="eligeFoto()">Capturar Foto</button><br>
 	<div id="Botones">
            <a href="index.html"><input type="button" value="Cancelar" name="btnCancelar" onclick="alert('Registro cancelado');"></a>
 	 <input type="button" value="Registro" name="btnRegistro" onclick="validaCampos();">
