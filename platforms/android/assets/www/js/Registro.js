@@ -94,6 +94,7 @@ var alumnoS=document.getElementById("alumno").value;
 }
 
 function RegistroBD() {
+	
 	var alumnoS=document.getElementById("alumno").value;
 	var semestreS;
 	if(alumnoS=='Si'){
@@ -105,6 +106,7 @@ function RegistroBD() {
 		semestreS="NA";
 	}
 	var nip=document.getElementById("nip").value;
+	
 	$.getJSON('http://192.168.0.113/RegistraUsuario.php',
 			{ 
 				codigo: document.getElementById("codigo").value,
@@ -117,18 +119,17 @@ function RegistroBD() {
 				sexo: document.getElementById("sexo").value,
 				alumno: alumnoS,
 				fotoC: 'NA',
-				semestre: semestreS,	
+				semestre: semestreS	
 			},function(data){
 			if(data==1){
 					alert("Bienvenido!(a)");
 								
 				}
 			else{
-				alert(data);
+				alert("nel");
 			}	
 			  setTimeout("location.href='sesionN.html'", 100);
 		});
-
 	
 }
 

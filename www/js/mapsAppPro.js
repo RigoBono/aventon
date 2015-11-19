@@ -1,8 +1,7 @@
 
 var lat=0.0
 var lon=0.0
-
-
+var idP=0;
 function accion(){
 var seleccion=document.getElementById("MenuPrincipal").value;
 if(seleccion=='Ver ubicacion'){
@@ -27,6 +26,20 @@ setTimeout("location.href='Informacion.html'", 100);
 if(seleccion=='Modificar automovil'){
 setTimeout("location.href='ModificaAuto.html'", 100);
 }
+if(seleccion=='Solicitar aventon'){
+setTimeout("location.href='PideAventon.html'", 100);;
+}
+
+}
+
+function pedirAventon(){
+	$.getJSON('http://192.168.0.113/SolicitaAventon.php',{ Lat: lat,Lon:lon},function(data){
+	console.log(JSON.stringify(data));
+	for (var i = 0; i < data.length; i++) {
+		alert("Tu aventon sera " +data[i].idPuntoInicioRuta);
+		}	
+			  
+		});
 
 }
 

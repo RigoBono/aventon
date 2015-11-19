@@ -18,7 +18,23 @@ if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
 return true;
 }
 function getPos(){
+navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
+function onSuccess(position) {
+	lat=position.coords.latitude;
+	lon=position.coords.longitude;
+	alert("Carga exitosa");
+	cargaMapa();
+    }
 
+
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+    }
+
+function float2int (value) {
+    return value | 0;
 }
 
 function loggeo() {
@@ -47,8 +63,11 @@ Publico=1;
 else{
 Particular=1;
 }
-	$.getJSON('http://192.168.0.113/RegistraAuto.php',
+hora=new Date();
+var id=hora.getTime()/(hora.getSeconds()*30000);
+	$.getJSON('http://192.168.0.113/RegistraPunto.php',
 			{ 
+				id: float2int(id),
 				HoraIni: document.getElementById("horainicio").value,	
 				HoraFin:  document.getElementById("horafin").value,	
 				HoraViaje: document.getElementById("horaviaje").value,				
@@ -57,16 +76,47 @@ Particular=1;
 				NumeroInterior: document.getElementById("interior").value,
 				NombrePlaza: document.getElementById("plaza").value,
 				Placas: document.getElementById("placas").value,
+				Dia: document.getElementById("dia").value,
+				Lat: lat,
+				Lon: lon,
+				codigo: document.getElementById("codigo").value,
 				
 			},function(data){
 			if(data==1){
-					alert("Auto registrado en el sistema, ahora podras dar aventones a CUCEI!");
+					alert("Punto registrado, ahora podras dar aventones a CUCEI!");
 								
 				}
 			else{
 				alert(data);
 			}	
-			  setTimeout("location.href='sesionN.html'", 100);
+			  //setTimeout("location.href='sesionN.html'", 100);
+		});
+
+	$.getJSON('http://192.168.0.113/RegistraParteDe.php',
+			{ 
+				id: float2int(id),
+				HoraIni: document.getElementById("horainicio").value,	
+				HoraFin:  document.getElementById("horafin").value,	
+				HoraViaje: document.getElementById("horaviaje").value,				
+				particular: Particular,
+				plazapublica: Publico,
+				NumeroInterior: document.getElementById("interior").value,
+				NombrePlaza: document.getElementById("plaza").value,
+				Placas: document.getElementById("placas").value,
+				Dia: document.getElementById("dia").value,
+				Lat: lat,
+				Lon: lon,
+				codigo: document.getElementById("codigo").value,
+				
+			},function(data){
+			if(data==1){
+					alert("Punto registrado en el dia y hora");
+								
+				}
+			else{
+				alert(data);
+			}	
+			 // setTimeout("location.href='sesionN.html'", 100);
 		});	
 }
 

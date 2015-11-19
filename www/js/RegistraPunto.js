@@ -18,8 +18,20 @@ if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
 return true;
 }
 function getPos(){
-
+navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
+function onSuccess(position) {
+	lat=position.coords.latitude;
+	lon=position.coords.longitude;
+	alert("Carga exitosa");
+	cargaMapa();
+    }
+
+
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+    }
 
 function float2int (value) {
     return value | 0;
@@ -65,7 +77,8 @@ var id=hora.getTime()/(hora.getSeconds()*30000);
 				NombrePlaza: document.getElementById("plaza").value,
 				Placas: document.getElementById("placas").value,
 				Dia: document.getElementById("dia").value,
-				Punto: lat+","+lon,
+				Lat: lat,
+				Lon: lon,
 				codigo: document.getElementById("codigo").value,
 				
 			},function(data){
@@ -91,7 +104,8 @@ var id=hora.getTime()/(hora.getSeconds()*30000);
 				NombrePlaza: document.getElementById("plaza").value,
 				Placas: document.getElementById("placas").value,
 				Dia: document.getElementById("dia").value,
-				Punto: lat+","+lon,
+				Lat: lat,
+				Lon: lon,
 				codigo: document.getElementById("codigo").value,
 				
 			},function(data){
@@ -102,7 +116,7 @@ var id=hora.getTime()/(hora.getSeconds()*30000);
 			else{
 				alert(data);
 			}	
-			  setTimeout("location.href='sesionN.html'", 100);
+			 // setTimeout("location.href='sesionN.html'", 100);
 		});	
 }
 

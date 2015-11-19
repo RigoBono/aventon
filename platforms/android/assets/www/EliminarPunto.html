@@ -21,31 +21,33 @@
     <head>
   
         <link rel="stylesheet" type="text/css" href="css/Registro.css">
+	 <script type="text/javascript" src="js/EliminarPunto.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <title>Aventon CUCEI</title>
     </head>
     <body>
         <div class="app">
 	<h1> Eliminar auto: </h1>
 	<div id="CajasTexto">
+		<h3> Ingresa tu codigo: </h3>
+		<input id="codigo" type="text" name="codigo">
+		<h3> Nip:</h3>
+		<input id="nip" type="password" name="nip">
+	<input type="button" value="Siguiente" name="btnRegistro" onclick="loggeo();">
             <h3> Dias con puntos: </h3>
 		<select id="dia">
-			<option>Lunes</option>
-			<option>Martes</option>
-			<option>Miercoles</option>
-			<option>Jueves</option>
-			<option>Viernes</option>
-			<option>Sabado</option>
+			
 		</select>
 		
 
 	</div>
 	<div id="Botones">
            <a href="index.html"><input type="button" value="Cancelar" name="btnCancelar" onclick="alert('Registro cancelado');"></a>
-	   <input type="button" value="Eliminar" name="btnRegistro" onclick="alert('Entrando');">
+	   <input type="button" value="Eliminar" name="btnRegistro" onclick="eliminaPunto()">
 	   
 	</div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+       
     </body>
 </html>
