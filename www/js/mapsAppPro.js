@@ -29,6 +29,9 @@ setTimeout("location.href='ModificaAuto.html'", 100);
 if(seleccion=='Solicitar aventon'){
 setTimeout("location.href='PideAventon.html'", 100);;
 }
+if(seleccion=='Eliminar cuenta'){
+setTimeout("location.href='Baja.html'", 100);;
+}
 
 }
 
